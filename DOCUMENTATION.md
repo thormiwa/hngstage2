@@ -6,7 +6,7 @@ The project setup can be found in the [README.md](README.md) file
 
 ### requests & responses
 
-### GET /api/:name
+### GET /api/:id
 
 
 ```bash
@@ -20,7 +20,7 @@ GET http://localhost:8080/api/oluwajuwon
 }
 ```
 
-### POST /api/:name
+### POST /api/:id
 
 expected request body:
 
@@ -39,7 +39,7 @@ expected response body:
 }
 ```
 
-### PUT /api/:name
+### PUT /api/:id
 
 expected request body:
 
@@ -57,7 +57,7 @@ expected response body:
 }
 ```
 
-### DELETE /api/:name
+### DELETE /api/:id
 
 expected response body:
 
