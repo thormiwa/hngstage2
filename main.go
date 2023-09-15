@@ -13,11 +13,15 @@ import (
 func main() {
 	db, err := sql.Open("sqlite3", "persons.db")
 	if err != nil {
-		fmt.Println("Error opening database")
 		fmt.Println(err)
 		return
 	}
 	defer db.Close()
+
+	if err := InitializeDatabase(db); err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	router := gin.Default()
 
