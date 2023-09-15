@@ -8,7 +8,7 @@ import (
 )
 
 func CreatePerson(db *sql.DB, name string) (int64, error) {
-	result, err := db.Exec("INSERT INTO persons (name) VALUES (?)", name)
+	result, err := db.Exec("INSERT INTO person (name) VALUES (?)", name)
 	if err != nil {
 		return 0, err
 	}
@@ -17,7 +17,7 @@ func CreatePerson(db *sql.DB, name string) (int64, error) {
 
 func GetPerson(db *sql.DB, id int) (*Person, error) {
 	var person Person
-	err := db.QueryRow("SELECT id, name FROM persons WHERE id = ?", id).Scan(&person.ID, &person.Name)
+	err := db.QueryRow("SELECT id, name FROM person WHERE id = ?", id).Scan(&person.ID, &person.Name)
 	if err != nil {
 		return nil, err
 	}
@@ -25,11 +25,11 @@ func GetPerson(db *sql.DB, id int) (*Person, error) {
 }
 
 func UpdatePerson(db *sql.DB, id int, name string) error {
-	_, err := db.Exec("UPDATE persons SET name = ? WHERE id = ?", name, id)
+	_, err := db.Exec("UPDATE person SET name = ? WHERE id = ?", name, id)
 	return err
 }
 
 func DeletePerson(db *sql.DB, id int) error {
-	_, err := db.Exec("DELETE FROM persons WHERE id = ?", id)
+	_, err := db.Exec("DELETE FROM person WHERE id = ?", id)
 	return err
 }

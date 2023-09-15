@@ -1,6 +1,6 @@
 import requests
 
-BASE_URL = "https://localhost:8080"
+BASE_URL = "https://hngstage2-39oa.onrender.com/api"
 
 def create_person(name):
     resp = requests.post(BASE_URL, json={"name": name})
