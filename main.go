@@ -85,9 +85,8 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"message": "Person updated"})
 	})
 
-	router.DELETE("/api/:id", func(c *gin.Context) {
-		idStr := c.Param("id")
-		id, err := strconv.Atoi(idStr)
+	router.DELETE("/api/:personID", func(c *gin.Context) {
+		id, err := strconv.Atoi(c.Param("personID"))
 		if err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid ID"})
 			return
