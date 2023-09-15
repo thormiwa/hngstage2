@@ -86,7 +86,8 @@ func main() {
 	})
 
 	router.DELETE("/api/:id", func(c *gin.Context) {
-		id, err := strconv.Atoi(c.Param("id"))
+		idStr := c.Param("id")
+		id, err := strconv.Atoi(idStr)
 		if err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid ID"})
 			return
