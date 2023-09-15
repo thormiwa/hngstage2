@@ -24,7 +24,6 @@ def test_person():
 
     # Create a person
     resp = create_person(name)
-    print("HERE")
     print(f"Create person: {resp.json()}")
 
     # Create person with same name
@@ -42,6 +41,5 @@ def test_person():
     # Delete person
     resp = delete_person(1)
     print(f"Delete person: {resp.json()}")
-
 
 test_person()
