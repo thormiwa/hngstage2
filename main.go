@@ -13,7 +13,7 @@ import (
 func main() {
 	db, err := sql.Open("sqlite3", "persons.db")
 	if err != nil {
-		fnt.Println("Error opening database")
+		fmt.Println("Error opening database")
 		fmt.Println(err)
 		return
 	}
