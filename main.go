@@ -13,6 +13,7 @@ import (
 func main() {
 	db, err := sql.Open("sqlite3", "persons.db")
 	if err != nil {
+		fnt.Println("Error opening database")
 		fmt.Println(err)
 		return
 	}
@@ -26,7 +27,12 @@ func main() {
 		}
 
 		if err := c.ShouldBindJSON(&person); err != nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid JSON request"})
+			return
+		}
+	
+		if person.Name == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Name is required"})
 			return
 		}
 
