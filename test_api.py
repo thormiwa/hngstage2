@@ -19,7 +19,7 @@ def delete_person(id):
     return resp
 
 def test_person():
-    name = ""
+    name = "Tomiwa"
     new_name = "Jibola"
 
     # Create a person

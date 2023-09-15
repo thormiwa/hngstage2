@@ -7,6 +7,10 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
+type Person struct {
+	Name string `json:"name" binding:"required"`
+}
+
 func CreatePerson(db *sql.DB, name string) (int64, error) {
 	result, err := db.Exec("INSERT INTO person (name) VALUES (?)", name)
 	if err != nil {

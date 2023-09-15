@@ -30,11 +30,6 @@ func main() {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid JSON request"})
 			return
 		}
-	
-		if person.Name == "" {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Name is required"})
-			return
-		}
 
 		id, err := CreatePerson(db, person.Name)
 		if err != nil {
