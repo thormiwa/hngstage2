@@ -14,7 +14,7 @@ def update_person(id, name):
     resp = requests.put(BASE_URL + f"/{id}", json={"name": name})
     return resp
 
-def delete_person(id):
+def delete_person(name):
     resp = requests.delete(BASE_URL + f"/{id}")
     return resp
 
@@ -23,10 +23,6 @@ def test_person():
     new_name = "Jibola"
 
     # Create a person
-    resp = create_person(name)
-    print(f"Create person: {resp.json()}")
-
-    # Create person with same name
     resp = create_person(name)
     print(f"Create person: {resp.json()}")
 
